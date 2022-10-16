@@ -1,0 +1,17 @@
+pipeline {
+    agent { label'TRF' }
+    stages {
+        stage ('clone') {
+            steps {
+                git url: 'https://github.com/chandushine/Calculator-1.git',
+                 branch: 'dev'
+            }
+        }       
+        stage ('build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+          
+    }
+    }
